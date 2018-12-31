@@ -24,7 +24,7 @@ move Replace.bat ..\
 cd ..\
 rmdir MarioEverything-DolphinNetplay-master /s
 DEL master.zip
-start Project64.exe
+start Dolphin.exe
 
 :Exit
 EXIT
