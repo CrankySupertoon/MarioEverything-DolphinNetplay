@@ -10,6 +10,14 @@ goto :Exit
 TASKKILL /IM Dolphin.exe /F
 wget.exe https://github.com/CindyLouWho03/MarioEverything-DolphinNetplay/archive/master.zip
 7z x master.zip
+cd User
+cd Config
+move Dolphin.ini ..\..\
+move GCPadNew.ini ..\..\
+move GFX.ini ..\..\
+move Qt.ini ..\..\
+move WiimoteNew.ini ..\..\
+cd ..\..\
 rmdir Languages /s
 rmdir QtPlugins /s
 rmdir Sys /s
@@ -24,6 +32,11 @@ move Replace.bat ..\
 cd ..\
 rmdir MarioEverything-DolphinNetplay-master /s
 DEL master.zip
+move Dolphin.ini User\Config
+move GCPadNew.ini User\Config
+move GFX.ini User\Config
+move Qt.ini User\Config
+move WiimoteNew.ini User\Config
 start Dolphin.exe
 
 :Exit
