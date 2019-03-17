@@ -8,8 +8,8 @@ goto :Exit
 
 :Start
 TASKKILL /IM Dolphin.exe /F
-wget.exe https://github.com/CindyLouWho03/MarioEverything-DolphinNetplay/archive/master.zip
-7z x master.zip
+wget.exe https://github.com/NailNatail64/MarioEverything-DolphinNetplay/archive/release.zip
+7z x release.zip
 cd User
 cd Config
 move Dolphin.ini ..\..\
@@ -22,7 +22,7 @@ rmdir Languages /s
 rmdir QtPlugins /s
 rmdir Sys /s
 rmdir User /s
-cd MarioEverything-DolphinNetplay-master
+cd MarioEverything-DolphinNetplay-release
 move Languages ..\
 move QtPlugins ..\
 move Sys ..\
@@ -30,8 +30,8 @@ move User ..\
 move Dolphin.exe ..\
 move Replace.bat ..\
 cd ..\
-rmdir MarioEverything-DolphinNetplay-master /s
-DEL master.zip
+rmdir MarioEverything-DolphinNetplay-release /s
+DEL release.zip
 move Dolphin.ini User\Config
 move GCPadNew.ini User\Config
 move GFX.ini User\Config
