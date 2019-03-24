@@ -87,11 +87,11 @@ if errorlevel 1 (
 	set /p MP7=Your Mario Party 7 save has been changed. Replace?
 	if /I "%MP7%"=="yes" goto ReplaceMp7
 	if /I "%MP7%"=="y" goto ReplaceMp7
-	if /I "%MP7%"=="no" goto CheckMkDD
-	if /I "%MP7%"=="n" goto CheckMkDD	
+	if /I "%MP7%"=="no" goto CheckMp8
+	if /I "%MP7%"=="n" goto CheckMp8	
 ) else (
 	echo Your Mario Party 7 save is correct!
-	goto CheckMkDD
+	goto CheckMp8
 )
 
 :ReplaceMp7
@@ -102,6 +102,33 @@ if not errorlevel 1 (
 ) else (
 	color 4F
 	echo There was an error replacing the Mario Party 7 file...
+	pause
+)
+)
+
+:CheckMp8
+echo ===============================================================================
+fc /b "User\Wii\title\Backup\mp8save.bin" "User\Wii\title\00010000\524d3845\data\mp8save.bin" > nul
+if errorlevel 1 (
+	set MP8="n"
+	set /p MP8=Your Mario Party 8 save has been changed. Replace?
+	if /I "%MP8%"=="yes" goto ReplaceMp8
+	if /I "%MP8%"=="y" goto ReplaceMp8
+	if /I "%MP8%"=="no" goto CheckMkDD
+	if /I "%MP8%"=="n" goto CheckMkDD	
+) else (
+	echo Your Mario Party 8 save is correct!
+	goto CheckMkDD
+)
+
+:ReplaceMp8
+copy /y "User\Wii\title\Backup\mp8save.bin" "User\Wii\title\00010000\524d3845\data\mp8save.bin"
+fc /b "User\Wii\title\Backup\mp8save.bin" "User\Wii\title\00010000\524d3845\data\mp8save.bin" > nul
+if not errorlevel 1 (
+	echo You now have the correct Mario Party 8 file!
+) else (
+	color 4F
+	echo There was an error replacing the Mario Party 8 file...
 	pause
 )
 )
